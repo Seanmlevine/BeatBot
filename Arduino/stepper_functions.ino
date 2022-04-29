@@ -4,13 +4,6 @@
 
 // Updated Stepper functions
 #include <Stepper.h>
-const int stepsPerRevolution = 5000;  // actual = 200 (microstep) 
-const int STEP_SIZE =  5000;
-
-Stepper stepperY(stepsPerRevolution, 2, 3);
-
-
-Stepper stepperX(stepsPerRevolution, 4, 5);
 // Move row, single position change
 // @param CURR_ROW - The current row
 // @param NEXT_ROW - The target row 
