@@ -84,6 +84,7 @@ void noteToMotor(byte inChannel, byte inNumber)
         switch(inNumber) {
   
           // Stepper Case
+          // Make sure to place stepper notes an 1/8th note before the down beat
           case 36:  // Row 1
               CURR_ROW = changeRow(CURR_ROW, 0);
               break;
@@ -138,4 +139,4 @@ void loop()
 {
     MIDI.read();
 */
-//}
+ 

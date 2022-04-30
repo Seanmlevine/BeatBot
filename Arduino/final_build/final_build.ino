@@ -151,25 +151,25 @@ void loop() {
 //  // Move steppers forward and backward and actuate each solenoid
 //  moveX(HIGH, stepsPerRevolution, speedMicroSeconds);
 //  moveY(HIGH, stepsPerRevolution, speedMicroSeconds);
-  CURR_ROW = changeRow(CURR_ROW, 3); // Y
+//  CURR_ROW = changeRow(CURR_ROW, 3); // Y
 //
 //  hitOnBeat(beat, SOLENOID_0, true);
 //  hitOnBeat(beat, SOLENOID_1, true);
 //  hitOnBeat(beat, SOLENOID_2, true);
 //  hitOnBeat(beat, SOLENOID_3, true);
 //
-  delay(1000); // Wait a second
+//  delay(1000); // Wait a second
 //  
 //  moveX(LOW, stepsPerRevolution, speedMicroSeconds);
 //  moveY(LOW, stepsPerRevolution, speedMicroSeconds);
-  CURR_ROW = changeRow(CURR_ROW, 1);
+//  CURR_ROW = changeRow(CURR_ROW, 1);
 //  
 //  hitOnBeat(beat, SOLENOID_0, true);
 //  hitOnBeat(beat, SOLENOID_1, true);
 //  hitOnBeat(beat, SOLENOID_2, true);
 //  hitOnBeat(beat, SOLENOID_3, true);
 //
-  delay(1000); // Wait a second
+//  delay(1000); // Wait a second
 
 //  moveUpDownImage(smile_open, -2);
 //  delay(65);

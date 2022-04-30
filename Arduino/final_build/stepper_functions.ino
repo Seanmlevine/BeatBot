@@ -5,11 +5,15 @@
 // Updated Stepper functions
 
 // All of these are included in final_build
-#include <Stepper.h>
+
+//#include <Stepper.h>
+//
+//const int stepsPerRevolution = 5000;  // actual = 200 (microstep) 
+//const int STEP_SIZE =  5000;
+//
 
 //const int stepsPerRevolution = 5000;  // actual = 200 (microstep) 
 //const int STEP_SIZE =  5000;
-
 Stepper stepperY(stepsPerRevolution, 2, 3);
 Stepper stepperX(stepsPerRevolution, 4, 5);
 
@@ -20,21 +24,21 @@ Stepper stepperX(stepsPerRevolution, 4, 5);
 // @returns CURR_ROW - the current row
 int changeRow(int CURR_ROW, int NEXT_ROW){
 
-  int STEP_SIZE = 5000;
-  stepperY.setSpeed(100);
+//  int STEP_SIZE = 5000;
+  stepperY.setSpeed(200);
   int STEP = abs(NEXT_ROW - CURR_ROW);
     if(CURR_ROW == NEXT_ROW) {
     } else if(CURR_ROW < NEXT_ROW) {
         Serial.println("forward:" + STEP);
         stepperY.step(STEP*STEP_SIZE);
         CURR_ROW = NEXT_ROW;
-        delay(1000);
+        delay(20);
         
     } else {
         Serial.println("back:" + STEP);
         stepperY.step(-(STEP*STEP_SIZE));
         CURR_ROW = NEXT_ROW;
-        delay(1000);
+        delay(20);
     }
 
     return CURR_ROW;
@@ -44,20 +48,20 @@ int changeRow(int CURR_ROW, int NEXT_ROW){
 int moveRow(int CURR_ROW, int NEXT_ROW) {
    Serial.print(NEXT_ROW);
     Serial.print('\n');
-    delay(1000);
+    delay(20);
     int STEP = abs(NEXT_ROW - CURR_ROW);
     if(CURR_ROW != NEXT_ROW) {
       if(CURR_ROW < NEXT_ROW) {
         Serial.println("forward:" + STEP);
         stepperY.step(STEP*STEP_SIZE);
         CURR_ROW = NEXT_ROW;
-        delay(500);
+        delay(20);
         
       } else {
          Serial.println("back:" + STEP);
           stepperY.step(-(STEP*STEP_SIZE));
           CURR_ROW = NEXT_ROW;
-          delay(500);
+          delay(20);
       }
     }
 
