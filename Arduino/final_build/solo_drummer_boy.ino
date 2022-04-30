@@ -1,10 +1,3 @@
-// In the setup loop:
-// setMinNoteLength(3);
-// setTempo(80);
-// makeSignals();  // Initial signal creation
-
-// Create drummer_boy piece in total
-
 // Generates the drummer boy piece to then be played back.
 /*
  * ==Section 1 (0:00-0:31)==
@@ -168,7 +161,7 @@ int intro[128][4] = {
 /* 
  * Random rhythms of 1st, 2nd, 4th, and 8th notes for 7 measures
  * S1 and S3 alternate from S2 and S4 for four 8th notes
- * S1-S4 play a single 8th note at a time, then the same happens in reverse from S4-S1
+ * S1-S4 play a single 16th note at a time, then the same happens in reverse from S4-S1
  */
 int sec1_end[32][4] = {
   // measure = 12.1
@@ -208,7 +201,7 @@ int sec1_end[32][4] = {
   {1, 0, 0, 0},
   {0, 0, 0, 0},
 };
- 
+
 /* ==Section 2 (0:31-1:05)==
  * Face color: purple, smile
  * BPM = 112
@@ -217,7 +210,7 @@ int sec1_end[32][4] = {
  * S1-S3 play four 16th notes one after another, then S4 plays a single 4th note
  * Random rhythms of 1st, 2nd, 4th, 8th and 16th notes for 7 measures
  * S1 and S3 alternate from S2 and S4 for four 8th notes
- * S1-S4 play a single 8th note at a time, then the same happens in reverse from S4-S1
+ * S1-S4 play a single 16th note at a time, then the same happens in reverse from S4-S1
  * 
  * ==Section 3 (1:05-1:35)==
  * Face color: green, open mouth
@@ -227,7 +220,7 @@ int sec1_end[32][4] = {
  * S1 and S3 alternate with S2 and S4 in syncopated 16th rhythm
  * Random rhythms of 1st, 2nd, 4th, 8th and 16th with low chance for 32nd notes for 7 measures
  * S1 and S3 alternate from S2 and S4 for four 8th notes
- * S1-S4 play a single 8th note at a time, then the same happens in reverse from S4-S1
+ * S1-S4 play a single 16th note at a time, then the same happens in reverse from S4-S1
  * 
  * ==Intermission (1:35-1:37)==
  * Two second delay to stop face before showing animation of glitching out and becomes red devil
@@ -286,6 +279,7 @@ void play_drummer_boy() {
   
     if (beatIndex > minSignalLength-1)
     {
+      measure++;
       beatIndex = 0;
       makeSignals();
     }
