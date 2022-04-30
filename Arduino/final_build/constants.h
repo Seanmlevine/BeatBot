@@ -10,7 +10,12 @@ const int minSignalLength = pow(2, minNoteLength);
 int bpm = 100;
 float beatTime = 60000 / bpm; // time of 1 beat in milliseconds
 float beatTimeMinNote = beatTime * beats / pow(2, minNoteLength);
-int measure = 1;
+
+// Playback
+int beatIndex = 0;
+int measure = 0;
+unsigned long currentMillis;
+unsigned long previousMillis;
 
 // Chance multipliers (in %)
 int pauseChance = 20;
@@ -38,8 +43,6 @@ int r1[33];
 int r2[33];
 int r3[33];
 int genSignals[minSignalLength][4];
-
-int beatIndex = 0;
 
 // For MIDI note names
 const char *notenames[] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
