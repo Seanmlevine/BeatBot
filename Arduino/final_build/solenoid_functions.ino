@@ -49,7 +49,7 @@ void makeSignals() {
     }
     sigIndex++;
     
-    int dur = abs(r0[i]) / noteLen[maxNoteLength-1];
+    int dur = abs(r0[i]) / noteLen[minNoteLength];
     
     for (int j = 0; j < dur-1; j++) {
       //Serial.print(sigIndex);
@@ -72,7 +72,7 @@ void makeSignals() {
     }
     sigIndex++;
     
-    int dur = abs(r1[i]) / noteLen[maxNoteLength-1];
+    int dur = abs(r1[i]) / noteLen[minNoteLength];
     
     for (int j = 0; j < dur-1; j++) {
       //Serial.print(sigIndex);
@@ -95,7 +95,7 @@ void makeSignals() {
     }
     sigIndex++;
     
-    int dur = abs(r2[i]) / noteLen[maxNoteLength-1];
+    int dur = abs(r2[i]) / noteLen[minNoteLength];
     
     for (int j = 0; j < dur-1; j++) {
       //Serial.print(sigIndex);
@@ -118,7 +118,7 @@ void makeSignals() {
     }
     sigIndex++;
     
-    int dur = abs(r3[i]) / noteLen[maxNoteLength-1];
+    int dur = abs(r3[i]) / noteLen[minNoteLength];
     
     for (int j = 0; j < dur-1; j++) {
       //Serial.print(sigIndex);
@@ -127,13 +127,14 @@ void makeSignals() {
     }
   }
 
-  for (int j = 0; j < 4; j++)
-  {
-    for (int i = 0; i < maxSignalLength; i++)
-    {
-      Serial.print(genSignals[i][j]);
-    }
-    Serial.println(' ');
-  }
-  Serial.println(' ');
+  // Uncomment to view signal output
+//  for (int j = 0; j < 4; j++)
+//  {
+//    for (int i = 0; i < maxSignalLength; i++)
+//    {
+//      Serial.print(genSignals[i][j]);
+//    }
+//    Serial.println(' ');
+//  }
+//  Serial.println(' ');
 }
