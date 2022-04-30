@@ -128,13 +128,13 @@ void makeSignals() {
   }
 
   // Uncomment to view signal output
-//  for (int j = 0; j < 4; j++)
-//  {
-//    for (int i = 0; i < maxSignalLength; i++)
-//    {
-//      Serial.print(genSignals[i][j]);
-//    }
-//    Serial.println(' ');
-//  }
-//  Serial.println(' ');
+  for (int j = 0; j < 4; j++)
+  {
+    for (int i = 0; i < minSignalLength; i++)
+    {
+      Serial.print(genSignals[i][j]);
+    }
+    Serial.println(' ');
+  }
+  Serial.println(' ');
 }

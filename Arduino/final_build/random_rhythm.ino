@@ -142,7 +142,7 @@ bool makeRhythm(int Measure[]) {
       } else {
         Measure[noteNum] = lengthn;
       }
-//      Serial.println(Measure[noteNum]);
+      Serial.println(Measure[noteNum]);
       noteNum += 1;
     }
 
