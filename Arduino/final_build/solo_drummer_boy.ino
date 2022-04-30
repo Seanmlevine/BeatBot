@@ -255,6 +255,7 @@ void play_drummer_boy() {
 
   // 1) Play intro
   beatIndex = 0;
+  Serial.println("Intro");
   while (beatIndex < 128){
     currentMillis = millis();
   
@@ -273,11 +274,14 @@ void play_drummer_boy() {
   makeSignals();
   
   beatIndex = 0;
+  measure = 0;
   while (measure < 7){
     currentMillis = millis();
+    Serial.println(measure);
     
     if (currentMillis - previousMillis >= beatTimeMinNote)
     {
+      Serial.println("Beat!");
       previousMillis = currentMillis;
   
       readHit(genSignals[beatIndex][0], genSignals[beatIndex][1], genSignals[beatIndex][2], genSignals[beatIndex][3]);
@@ -286,6 +290,8 @@ void play_drummer_boy() {
   
     if (beatIndex > minSignalLength-1)
     {
+      Serial.println("Measure!");
+      measure++;
       beatIndex = 0;
       makeSignals();
     }
@@ -293,6 +299,7 @@ void play_drummer_boy() {
 
   // 2b) play sec1_end
   beatIndex = 0;
+  Serial.println("End of sec1");
   while (beatIndex < 32){
     currentMillis = millis();
   

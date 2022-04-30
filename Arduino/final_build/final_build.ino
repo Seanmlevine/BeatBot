@@ -92,21 +92,20 @@ void setup() {
   pinMode(SOLENOID_3, OUTPUT);
 
 //  // Rhythm Generator setup
-//  float k = 1000.0;
-//  for (int i = 0; i < maxNoteLength; i++) {
-//    noteLen[i] = (int)(k * beatnote);
-//
-//    k /= 2;
-//    /* noteLen indexes:
-//      0 -> whole note
-//      1 -> half note
-//      2 -> quarter note
-//      3 -> 8th note
-//      4 -> 16th note
-//      5 -> 32th note
-//    */
-//  }
-//
+float k = 1000.0;
+for (int i = 0; i < minNoteLength+1; i++) {
+  noteLen[i] = (int)(k * beatnote);
+
+  k /= 2;
+  /* noteLen indexes:
+    0 -> whole note
+    1 -> half note
+    2 -> quarter note
+    3 -> 8th note
+    4 -> 16th note
+    5 -> 32th note
+  */
+}
 //  makeSignals();  // Initial signal creation
 
 
