@@ -85,16 +85,16 @@ void noteToMotor(byte inChannel, byte inNumber)
   
           // Stepper Case
           case 36:  // Row 1
-              CURR_ROW = moveRow(CURR_ROW, 0)
+              CURR_ROW = changeRow(CURR_ROW, 0)
               break;
           case 37: // Row 2
-              CURR_ROW = moveRow(CURR_ROW, 1)
+              CURR_ROW = changeRow(CURR_ROW, 1)
               break;
           case 38: // Row 3
-              CURR_ROW = moveRow(CURR_ROW, 2)
+              CURR_ROW = changeRow(CURR_ROW, 2)
               break;
           case 39: // Row 4
-              CURR_ROW = moveRow(CURR_ROW, 3)
+              CURR_ROW = changeRow(CURR_ROW, 3)
               break;
       }
     }

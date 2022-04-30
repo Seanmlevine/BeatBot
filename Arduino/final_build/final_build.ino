@@ -48,7 +48,9 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(WIDTH, HEIGHT, LED_PIN,
 
 
 // Row and column starting positions
-int STEP_SIZE = 400;
+const int STEP_SIZE = 400;
+const int stepsPerRevolution = 200;
+
 int CURR_ROW = 0;
 int CURR_COL = 0;
 
