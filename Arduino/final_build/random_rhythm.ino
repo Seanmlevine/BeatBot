@@ -9,21 +9,65 @@
 */
 
 // Speaker
-const int speaker = 9; //pin
+//const int speaker = 9; //pin
 
 // Button
 // While the button is pressed, the rhythm plays through the speaker
-int buttonPin = 12;
-int buttonState = 0; //1 means pressed; 0 means not pressed
+//int buttonPin = 12;
+//int buttonState = 0; //1 means pressed; 0 means not pressed
 
-int ledState = HIGH;
-int ledPin = 13;
+//int ledState = HIGH;
+//int ledPin = 13;
 
-boolean randChance(int chance) {
+/* Can't use because needs to be constant. Just let it be the smallest subdivision always.*/
+// Udpates the minimum subdivision note length and signal lengths
+//void setMinNoteLength(int index) {
+//  minNoteLength = index;  // Make 5 to include 32nd notes
+//  minSignalLength = pow(2, minNoteLength);
+//}
+
+// Updates the tempo and all related time measurements
+void setTempo(int tempo) {
+  bpm = tempo;
+  beatTime = 60000 / bpm; // time of 1 beat in milliseconds
+  beatTimeMinNote = beatTime * beats / pow(2, minNoteLength);
+}
+
+// Updates the random weights for generating a type of note; will normalize weights that do not add up to 100
+void setNoteWeights(float one, float two, float four, float eight, float sixteen, float thirtytwo) {
+  float total = one + two + four + eight + sixteen + thirtytwo;
+  
+  wholeNoteChance = one / total * 100.0;
+  halfNoteChance = two / total * 100.0;
+  quarterNoteChance = four / total * 100.0;
+  eighthNoteChance = eight / total * 100.0;
+  sixteenthNoteChance = sixteen / total * 100.0;
+  thirtysecondNoteChance = thirtytwo / total * 100.0;
+}
+
+bool randChance(int chance) {
   int r = random(1, 101);
   return (chance >= r);
 }
 
+// Random note length based on the current set % for each note
+int randNote() {
+  int r = random(1, 101);
+
+  if (r < wholeNoteChance) {
+    return 0;
+  } else if (r < wholeNoteChance+halfNoteChance) {
+    return 1;
+  } else if (r < wholeNoteChance+halfNoteChance+quarterNoteChance) {
+    return 2;
+  } else if (r < wholeNoteChance+halfNoteChance+quarterNoteChance+eighthNoteChance) {
+    return 3;
+  } else if (r < wholeNoteChance+halfNoteChance+quarterNoteChance+eighthNoteChance+sixteenthNoteChance) {
+    return 4;
+  } else {
+    return 5;
+  }
+}
 
 bool makeRhythm(int Measure[]) {
 
@@ -39,8 +83,8 @@ bool makeRhythm(int Measure[]) {
       // NEW NOTE
 
       // What type of note?
-      int lengthn = noteLen[random(0, maxNoteLength)]; //holds length of current note
-      if (lengthn == noteLen[0] && randChance(overrideChance)) lengthn = noteLen[2];  // % chance whole-notes will become half-notes
+      int lengthn = noteLen[randNote()]; //holds length of current note
+//      if (lengthn == noteLen[0] && randChance(overrideChance)) lengthn = noteLen[2];  // % chance whole-notes will become half-notes
       if (timeLeft < lengthn) continue;
 
       // Pause or tone?
@@ -98,7 +142,7 @@ bool makeRhythm(int Measure[]) {
       } else {
         Measure[noteNum] = lengthn;
       }
-      Serial.println(Measure[noteNum]);
+//      Serial.println(Measure[noteNum]);
       noteNum += 1;
     }
 

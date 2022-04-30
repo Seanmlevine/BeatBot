@@ -5,11 +5,15 @@
 // Updated Stepper functions
 
 // All of these are included in final_build
+
 //#include <Stepper.h>
 //
 //const int stepsPerRevolution = 5000;  // actual = 200 (microstep) 
 //const int STEP_SIZE =  5000;
 //
+
+//const int stepsPerRevolution = 5000;  // actual = 200 (microstep) 
+//const int STEP_SIZE =  5000;
 Stepper stepperY(stepsPerRevolution, 2, 3);
 Stepper stepperX(stepsPerRevolution, 4, 5);
 
