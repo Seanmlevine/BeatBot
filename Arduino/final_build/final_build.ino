@@ -66,14 +66,14 @@ void setup() {
 //  Serial.println(smiley_test[0]);
 //  Serial.println(matrix.Color(255, 0, 0));
   
-//  strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
-//  strip.show();            // Turn OFF all pixels ASAP
-//  strip.setBrightness(40); // Set BRIGHTNESS to about 1/6 (max = 255)
+  strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
+  strip.show();            // Turn OFF all pixels ASAP
+  strip.setBrightness(80); // Set BRIGHTNESS to about 1/6 (max = 255)
 
   // LED Matrix setup
-  matrix.begin();
-  matrix.setBrightness(40);
-  matrix.show();
+//  matrix.begin();
+//  matrix.setBrightness(60);
+//  matrix.show();
 
   // Stepper Motors setup
 
@@ -92,23 +92,21 @@ void setup() {
   pinMode(SOLENOID_3, OUTPUT);
 
 //  // Rhythm Generator setup
-float k = 1000.0;
-for (int i = 0; i < minNoteLength+1; i++) {
-  noteLen[i] = (int)(k * beatnote);
-
-  k /= 2;
-  /* noteLen indexes:
-    0 -> whole note
-    1 -> half note
-    2 -> quarter note
-    3 -> 8th note
-    4 -> 16th note
-    5 -> 32th note
-  */
-}
+  float k = 1000.0;
+  for (int i = 0; i < minNoteLength+1; i++) {
+    noteLen[i] = (int)(k * beatnote);
+  
+    k /= 2;
+    /* noteLen indexes:
+      0 -> whole note
+      1 -> half note
+      2 -> quarter note
+      3 -> 8th note
+      4 -> 16th note
+      5 -> 32th note
+    */
+  }
 //  makeSignals();  // Initial signal creation
-
-
 
   // MIDI TESTING
 
@@ -118,14 +116,14 @@ for (int i = 0; i < minNoteLength+1; i++) {
   MIDI.begin(MIDI_CHANNEL_OMNI);
   MIDI.setHandleNoteOn(handleNoteOn);
   MIDI.setHandleNoteOff(handleNoteOff);
-  
+
+  playDrummerBoy();
 }
 
 void loop() {
 
   // MIDI TESTING
   MIDI.read();
-
 
   // RHYTHM GENERATOR SCRIPT
 //  unsigned long currentMillis = millis();
@@ -134,9 +132,24 @@ void loop() {
 //  {
 //    previousMillis = currentMillis;
 //
-//    readHit(genSignals[beatIndex][0], genSignals[beatIndex][1], genSignals[beatIndex][2], genSignals[beatIndex][3]);
+//    //readHit(genSignals[beatIndex][0], genSignals[beatIndex][1], genSignals[beatIndex][2], genSignals[beatIndex][3]);
 //    beatIndex++;
 //  }
+//  
+//  if (beatIndex % 4 == 0 && allowChange)
+//    {
+//      allowChange = false;
+//      if(downBeat) {
+//        displayLedImage(smile_closed);
+//        Serial.println("DOWN");
+//        downBeat = false;
+//      } else {
+//        displayLedImage(smile_open);
+//        Serial.println("up");
+//        downBeat = true;
+//      }
+//    }
+//   if (beatIndex % 4 != 0) {allowChange = true;}
 //
 //  if (beatIndex > maxSignalLength-1)
 //  {
@@ -169,7 +182,7 @@ void loop() {
 //  hitOnBeat(beat, SOLENOID_3, true);
 //
 //  delay(1000); // Wait a second
-
+//
 //  moveUpDownImage(smile_open, -2);
 //  delay(65);
 //  moveUpDownImage(smile_open, -1);
@@ -187,10 +200,10 @@ void loop() {
   // check to see if it's time to blink the LED; that is, if the difference
   // between the current time and last time you blinked the LED is bigger than
   // the interval at which you want to blink the LED.
-  //unsigned long currentMillis = millis();
+//  unsigned long currentMillis = millis();
 
 
-//  if (currentMillis - previousMillis >= intervals[int_index]) {
+//  if (currentMillis - previousMillis >= 500) {
 //    // save the last time you blinked the LED
 //    previousMillis = currentMillis;
 //
@@ -203,7 +216,7 @@ void loop() {
 //    if (int_index > sizeof(intervals)) int_index = 0; // reset int_index when reaching the last interval
 //  }
   
-//  // Fill along the length of the strip in various colors...
+  // Fill along the length of the strip in various colors...
 //  colorWipe(strip.Color(255,   0,   0), 20); // Red
 //  colorWipe(strip.Color(  0, 255,   0), 20); // Green
 //  colorWipe(strip.Color(  0,   0, 255), 20); // Blue

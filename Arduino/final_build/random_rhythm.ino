@@ -120,19 +120,19 @@ bool makeRhythm(int Measure[]) {
 //      TripletMode = false;
 
       // Dotted?
-      bool singleDot = randChance(singledotChance);
-      bool doubleDot = randChance(doubledotChance);
-      if (singleDot && doubleDot) doubleDot = false; // single-dotted note trumps double-dotted
-
-      if (singleDot) {
-        if (lengthn < noteLen[3]) continue;
-        lengthn *= 1.5;
-        if (timeLeft < lengthn) continue;
-      } else if (doubleDot) {
-        if (lengthn < noteLen[2]) continue;
-        lengthn *= 1.75;
-        if (timeLeft < lengthn) continue;
-      }
+//      bool singleDot = randChance(singledotChance);
+//      bool doubleDot = randChance(doubledotChance);
+//      if (singleDot && doubleDot) doubleDot = false; // single-dotted note trumps double-dotted
+//
+//      if (singleDot) {
+//        if (lengthn < noteLen[3]) continue;
+//        lengthn *= 1.5;
+//        if (timeLeft < lengthn) continue;
+//      } else if (doubleDot) {
+//        if (lengthn < noteLen[2]) continue;
+//        lengthn *= 1.75;
+//        if (timeLeft < lengthn) continue;
+//      }
 
       // Finally, adding the note!
       timeLeft -= lengthn;
@@ -142,7 +142,7 @@ bool makeRhythm(int Measure[]) {
       } else {
         Measure[noteNum] = lengthn;
       }
-      Serial.println(Measure[noteNum]);
+//      Serial.println(Measure[noteNum]);
       noteNum += 1;
     }
 

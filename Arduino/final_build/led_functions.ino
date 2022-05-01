@@ -1,11 +1,19 @@
 //Display a premade LED image on the matrix
+//void displayLedImage(uint8_t image[][3]) {
+//  for(int j=0; j<HEIGHT; j++) {
+//    for(int i=0; i<WIDTH; i++) {
+//      matrix.drawPixel(i, j, matrix.Color(image[j * HEIGHT + i][0], image[j * HEIGHT + i][1], image[j * HEIGHT + i][2]));
+//    }
+//  }
+//  matrix.show();
+//}
+
 void displayLedImage(uint8_t image[][3]) {
-  for(int j=0; j<HEIGHT; j++) {
-    for(int i=0; i<WIDTH; i++) {
-      matrix.drawPixel(i, j, matrix.Color(image[j * HEIGHT + i][0], image[j * HEIGHT + i][1], image[j * HEIGHT + i][2]));
-    }
+  for(int i=0; i<strip.numPixels(); i++) { // For each pixel in strip...
+    strip.setPixelColor(i, strip.Color(image[i][0], image[i][1], image[i][2])); //  Set pixel's color (in RAM)
   }
-  matrix.show();
+  strip.show();                          //  Update strip to match
+  //delay(20);                           //  Pause for a moment
 }
 
 //Move an image up or down X units
@@ -38,6 +46,16 @@ void moveUpDownImage(uint8_t image[][3], int shift_by) {
     }
   }
   matrix.show();
+}
+
+void changeLEDColor(uint8_t image[][3], const uint8_t color[3]) {
+  for(int i = 0; i < LED_COUNT; i++) {
+    if(image[i][0] != 0 || image[i][1] != 0 || image[i][2] != 0) {
+      image[i][0] = color[0];
+      image[i][1] = color[1];
+      image[i][2] = color[2];
+    }
+  }
 }
 
 // ----------------- Some functions creating animated effects -----------------

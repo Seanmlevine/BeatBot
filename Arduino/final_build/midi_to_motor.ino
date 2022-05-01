@@ -74,7 +74,7 @@ void noteToSolenoid(byte inChannel, byte inNumber)
               digitalWrite(SOLENOID_3, LOW); // switch solenoid OFF
               break;
           case 40: // Drummer Boy Activation
-              play_drummer_boy();
+              playDrummerBoy();
               break;      
       }
     }
