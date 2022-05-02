@@ -51,7 +51,7 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(WIDTH, HEIGHT, LED_PIN,
 const int STEP_SIZE = 5000;
 const int stepsPerRevolution = 5000;
 
-int CURR_ROW = 0;
+int CURR_ROW = 3;
 int CURR_COL = 0;
 
 // Generally, you should use "unsigned long" for variables that hold time
@@ -117,7 +117,7 @@ void setup() {
   MIDI.setHandleNoteOn(handleNoteOn);
   MIDI.setHandleNoteOff(handleNoteOff);
 
-  playDrummerBoy();
+//  playDrummerBoy();
 }
 
 void loop() {

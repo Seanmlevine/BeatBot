@@ -513,6 +513,7 @@ void playDrummerBoy() {
 
 // ====Intro====
   CURR_ROW = changeRow(CURR_ROW, 0);  // Move to Row 1
+  delay(1000);
   Serial.println("Intro");
   changeLEDColor(smile_closed, blue); // Face color: blue, small grin
   changeLEDColor(smile_open, blue);

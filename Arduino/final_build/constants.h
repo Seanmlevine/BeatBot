@@ -60,3 +60,4 @@ int genSignals[minSignalLength][4];
 //====MIDI VARIABLES====
 // For MIDI note names
 const char *notenames[] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+bool toggle = true;

@@ -15,7 +15,7 @@ void readHit(int sig0, int sig1, int sig2, int sig3) {
   digitalWrite(SOLENOID_2, sig2);
   digitalWrite(SOLENOID_3, sig3);
 
-  delay(10);
+  delay(20);
   allLow();
 }
 

@@ -33,6 +33,7 @@ void handleNoteOn(byte inChannel, byte inNumber, byte inVelocity)
 
     noteToSolenoid(inChannel, inNumber);
     noteToMotor(inChannel,inNumber);
+    noteToLED(inChannel,inNumber);
 }
 
 void handleNoteOff(byte inChannel, byte inNumber, byte inVelocity)
@@ -113,12 +114,31 @@ void noteToLED(byte inChannel, byte inNumber)
           // Stepper Case
           case 36:  // Head Movement
               //Head Bob Toggle
+              if (toggle) {
+                displayLedImage(smile_closed);
+                toggle = false;
+                Serial.println(toggle);
+              } else {
+                displayLedImage(smile_open);
+                toggle = true;
+                Serial.println(toggle);
+              }
+              
               break;
           case 37: // Color 1
+            changeLEDColor(smile_closed, blue); // Face color: blue, small grin
+            changeLEDColor(smile_open, blue);
+            displayLedImage(smile_closed);
               break;
           case 38: // Color 2
+            changeLEDColor(smile_closed, purple); // Face color: purple, smile
+            changeLEDColor(smile_open, purple);
+            displayLedImage(smile_closed);
               break;
           case 39: // Color 3
+            changeLEDColor(smile_closed, green); // Face color: green, open mouth
+            changeLEDColor(smile_open, green);
+            displayLedImage(smile_closed);
               break;
       }
     }
