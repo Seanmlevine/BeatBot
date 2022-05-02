@@ -422,12 +422,12 @@ int sec4_end[32][4] = {
   {0, 0, 0, 0},
   {0, 0, 0, 0},
   {0, 0, 0, 0},
-  {0, 0, 0, 0},
+  {1, 1, 1, 1},
   {0, 0, 0, 0},
   {0, 0, 0, 0},
   {0, 0, 0, 0},
   // measure = 60.4
-  {0, 0, 0, 0},
+  {1, 1, 1, 1},
   {0, 0, 0, 0},
   {0, 0, 0, 0},
   {0, 0, 0, 0},
@@ -470,6 +470,7 @@ void playSection(int section[][4], int secLen) {
 void playRandMeasures(int num_measures) {
   beatIndex = 0;
   measure = 0;
+  makeSignals();
   while (measure < num_measures){
     currentMillis = millis();
     
@@ -527,7 +528,7 @@ void playDrummerBoy() {
   
   // 1a) play random section 1
   setNoteWeights(10, 20, 30, 40, 0, 0); // sec1 note chances
-  makeSignals();
+  //makeSignals();
   playRandMeasures(7);
 
   // 1b) play sec1_end
@@ -544,7 +545,7 @@ void playDrummerBoy() {
   
   // 2a) play random section 2a
   setNoteWeights(5, 15, 30, 30, 20, 0); // sec2 note chances
-  makeSignals();
+  //makeSignals();
   playRandMeasures(7);
 
   // 2b) play sec2_mid
@@ -552,7 +553,7 @@ void playDrummerBoy() {
   playSection(sec2_mid, 32);
 
   // 2c) play random section 2c
-  makeSignals();
+  //makeSignals();
   playRandMeasures(7);
 
   // 2d) play sec1_end
@@ -569,7 +570,7 @@ void playDrummerBoy() {
   
   // 3a) play random section 3a
   setNoteWeights(0, 5, 35, 33, 20, 2); // sec3 note chances
-  makeSignals();
+  //makeSignals();
   playRandMeasures(7);
 
   // 3b) play sec3_mid
@@ -577,7 +578,7 @@ void playDrummerBoy() {
   playSection(sec3_mid, 32);
 
   // 3c) play random section 3c
-  makeSignals();
+  //makeSignals();
   playRandMeasures(7);
 
   // 3d) play sec1_end
@@ -603,7 +604,7 @@ void playDrummerBoy() {
 
   // 4b) play random section 4b
   setNoteWeights(0, 0, 45, 30, 20, 5); // sec3 note chances
-  makeSignals();
+  //makeSignals();
   playRandMeasures(3);
 
   // 4c) play sec4_mid
@@ -611,7 +612,7 @@ void playDrummerBoy() {
   playSection(sec4_mid, 32);
 
   // 4d) play random section 4d
-  makeSignals();
+  //makeSignals();
   playRandMeasures(3);
 
   // 4e) play sec2_mid
@@ -619,7 +620,7 @@ void playDrummerBoy() {
   playSection(sec2_mid, 32);
 
   // 4f) play random section 4f
-  makeSignals();
+  //makeSignals();
   playRandMeasures(3);
 
   // 4g) play sec3_mid
@@ -627,7 +628,7 @@ void playDrummerBoy() {
   playSection(sec3_mid, 32);
 
   // 4h) play random section 4h
-  makeSignals();
+  //makeSignals();
   playRandMeasures(3);
 
   // 4i) play sec4_end
