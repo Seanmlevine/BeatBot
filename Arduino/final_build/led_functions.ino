@@ -50,14 +50,10 @@ void moveUpDownImage(uint8_t image[][3], int shift_by) {
 
 void changeLEDColor(uint8_t image[][3], const uint8_t color[3]) {
   for(int i = 0; i < LED_COUNT; i++) {
-    if(image[i][0] != 0 || image[i][1] != 0 || image[i][2] != 0 || image[i][0] != 50 || image[i][1] != 50 || image[i][2] != 50) {
+    if(image[i][0] != 0 || image[i][1] != 0 || image[i][2] != 0) {
       image[i][0] = color[0];
       image[i][1] = color[1];
       image[i][2] = color[2];
-    } else {
-      image[i][0] = 50;
-      image[i][1] = 50;
-      image[i][2] = 50;
     }
   }
 }
