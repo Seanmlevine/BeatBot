@@ -140,10 +140,59 @@ void noteToLED(byte inChannel, byte inNumber)
             changeLEDColor(smile_open, green);
             displayLedImage(smile_closed);
               break;
-      }
+        }
     }
 }
 
+void noteToRhythmTrigger(byte inChannel, byte inNumber) 
+{   
+    if (inChannel == 4)
+    {
+        switch(inNumber) {
+  
+          // Stepper Case
+          case 36:
+            playRandMeasures(1);
+            break;
+
+          case 37:
+            playSection(sec1_end, 32);
+            break;
+
+          case 38:
+            playSection(sec2_mid, 32);
+            break;
+
+          case 39:
+            playSection(sec3_mid, 32);
+            break;
+
+          case 40:
+            playSection(sec4_mid, 32);
+            break;
+
+          case 41:
+            playSection(sec4_end, 32);
+            break;
+
+          case 42:
+            setNoteWeights(10, 20, 30, 40, 0, 0); // slow note rhythms
+            break;
+
+          case 43:
+            setNoteWeights(5, 15, 30, 30, 20, 0); // medium-slow note rhythms
+            break;
+
+          case 44:
+            setNoteWeights(0, 5, 35, 33, 20, 2);  // medium-fast note rhythms
+            break;
+
+          case 45:
+            setNoteWeights(0, 0, 45, 30, 20, 5);  // fast note rhythms
+            break;
+        }
+    }
+}
 // Added to final_build
 /*
 void setup()
