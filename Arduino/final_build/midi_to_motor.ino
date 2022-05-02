@@ -101,6 +101,19 @@ void noteToMotor(byte inChannel, byte inNumber)
           case 39: // Row 4
               CURR_ROW = changeRow(CURR_ROW, 3);
               break;
+
+          case 40:  // Col 1
+              CURR_COL = moveCol(CURR_COL, 0);
+              break;
+          case 41: // Col 2
+              CURR_COL = moveCol(CURR_COL, 1);
+              break;
+          case 42: // Col 3
+              CURR_COL = moveCol(CURR_COL, 2);
+              break;
+          case 43: // Col 4
+              CURR_COL = moveCol(CURR_COL, 3);
+              break;
       }
     }
 }

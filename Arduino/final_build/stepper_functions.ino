@@ -25,7 +25,7 @@ Stepper stepperX(stepsPerRevolution, 4, 5);
 int changeRow(int CURR_ROW, int NEXT_ROW){
 
 //  int STEP_SIZE = 5000;
-  stepperY.setSpeed(200);
+  stepperY.setSpeed(300);
   int STEP = abs(NEXT_ROW - CURR_ROW);
     if(CURR_ROW == NEXT_ROW) {
     } else if(CURR_ROW < NEXT_ROW) {
@@ -102,9 +102,7 @@ int moveRows(uint8_t positions[10], int CURR_ROW) {
 // @param NEXT_COL - The target column 
 // @returns CURR_COL - the current column
 int moveCol(int CURR_COL, int NEXT_COL) {
-   Serial.print(NEXT_COL);
-    Serial.print('\n');
-    delay(500);
+    stepperY.setSpeed(300);
     int STEP = abs(NEXT_COL - CURR_COL);
     if(CURR_COL != NEXT_COL) {
       if(CURR_COL < NEXT_COL) {
