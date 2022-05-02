@@ -10,6 +10,7 @@
 // HEADER FILES
 #include "faces.h"
 #include "constants.h"
+#include "const_rhythms.h"
 
 // MIDI LIBRARY AND INITIALIZATION
 #include <USB-MIDI.h>

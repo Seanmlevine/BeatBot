@@ -54,6 +54,10 @@ void changeLEDColor(uint8_t image[][3], const uint8_t color[3]) {
       image[i][0] = color[0];
       image[i][1] = color[1];
       image[i][2] = color[2];
+    } else {
+      image[i][0] = 80;
+      image[i][1] = 80;
+      image[i][2] = 80;
     }
   }
 }
