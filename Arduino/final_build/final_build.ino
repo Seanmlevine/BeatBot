@@ -69,7 +69,7 @@ void setup() {
   
   strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
   strip.show();            // Turn OFF all pixels ASAP
-  strip.setBrightness(80); // Set BRIGHTNESS to about 1/6 (max = 255)
+  strip.setBrightness(70); // Set BRIGHTNESS to about 1/6 (max = 255)
 
   // LED Matrix setup
 //  matrix.begin();
