@@ -34,6 +34,7 @@ void handleNoteOn(byte inChannel, byte inNumber, byte inVelocity)
     noteToSolenoid(inChannel, inNumber);
     noteToMotor(inChannel,inNumber);
     noteToLED(inChannel,inNumber);
+    noteToRhythmTrigger(inChannel,inNumber);
 }
 
 void handleNoteOff(byte inChannel, byte inNumber, byte inVelocity)
@@ -114,6 +115,19 @@ void noteToMotor(byte inChannel, byte inNumber)
           case 43: // Col 4
               CURR_COL = moveCol(CURR_COL, 3);
               break;
+
+          case 44:  // Col -1
+              CURR_COL = moveCol(CURR_COL, -1);
+              break;
+          case 45: // Col -2
+              CURR_COL = moveCol(CURR_COL, -2);
+              break;
+          case 46: // Col -3
+              CURR_COL = moveCol(CURR_COL, -3);
+              break;
+//          case 32: // Col -4
+//              CURR_COL = moveCol(CURR_COL, -4);
+//              break;
       }
     }
 }

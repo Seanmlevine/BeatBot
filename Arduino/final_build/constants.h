@@ -19,7 +19,7 @@ const int minNoteLength = 5;  // Make 5 to include 32nd notes
 const int minSignalLength = pow(2, minNoteLength);
 
 // Tempo
-int bpm = 80;
+int bpm = 100;
 float beatTime = 60000 / bpm; // time of 1 beat in milliseconds
 float beatTimeMinNote = beatTime * beats / pow(2, minNoteLength);
 
