@@ -75,9 +75,9 @@ void noteToSolenoid(byte inChannel, byte inNumber)
               delay(20);
               digitalWrite(SOLENOID_3, LOW); // switch solenoid OFF
               break;
-          case 40: // Drummer Boy Activation
-              playDrummerBoy();
-              break;      
+//          case 40: // Drummer Boy Activation
+//              playDrummerBoy();
+//              break;      
       }
     }
 }
@@ -167,6 +167,22 @@ void noteToLED(byte inChannel, byte inNumber)
             changeLEDColor(smile_open, green);
             displayLedImage(smile_closed);
               break;
+
+          case 40: // Color 4
+            changeLEDColor(smile_closed, red); // Face color: green, open mouth
+            changeLEDColor(smile_open, red);
+            displayLedImage(smile_closed);
+              break;
+
+          case 41: // Clear
+            strip.clear();
+              break;
+              
+          case 42: // theaterchase
+            theaterChase(strip.Color(127, 127, 127), 50);
+              break;
+
+              
         }
     }
 }
